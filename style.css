@@ -1,0 +1,384 @@
+:root {
+    /* Theme colors */
+    --main-color1:#0C090D;
+    --main-color2:#161118;
+    --text-color:#FCFAFA;
+    --accent1:#F15946;
+    --accent2:#F9C22E;
+    --project-card:#53B3CB;
+}
+
+.text-accent {
+    color: var(--project-card);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 120px; 
+    scroll-behavior: smooth; 
+    font-size: clamp(16px, 0.7vw + 12px,18px);
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    background-color: var(--main-color1);
+    color: var(--text-color);
+}
+
+/* Layout and Container Limits */
+header, main, footer {
+    margin: 0 auto; /* Centers the content on large screens */
+    padding: 2rem;
+}
+
+/* 3. Header & Navigation (Flexbox) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: var(--main-color2);
+    color: var(--text-color);
+    z-index: 9999;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+nav a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+nav a:hover {
+    color: var(--text-color);
+}
+
+/* 4. Sections */
+section {
+    margin-bottom: 5rem;
+}
+
+.hero {
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem; 
+    margin-bottom: 0;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    margin-bottom: 2rem;
+}
+
+/* 5. Project Grid (CSS Grid) */
+.project-grid {
+    display: grid;
+    /* This single line makes the grid responsive. 
+       Cards will be at least 300px wide, and will fill available space. */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
+    transition-duration: 0.4s;
+}
+
+.btn:hover {
+    background: var(--accent2);
+    color: var(--main-color1);
+}
+
+.about-section {
+    margin: 0 auto; 
+    padding: 6rem 2rem;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.about-half {
+    flex: 1; 
+}
+
+.about-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.about-img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: var(--radius);
+}
+
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    padding-bottom: 4rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    font-size: 4rem;
+    color: var(--text-color);
+    padding-bottom: 8px;
+    margin: 0;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: var(--accent2);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 8px;
+    width: 100%;
+    height: 10px;
+    background-color: var(--accent1);
+}
+
+
+.project-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+/* Reverses the layout on every second project */
+.project-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.project-visual {
+    flex: 1.5; 
+    background-color: var(--project-card); 
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+/* Odd rows have the image to the left. */
+.project-row:nth-child(odd) .project-visual {
+    padding: 3rem 3rem 3rem 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Even rows have image on the right */
+.project-row:nth-child(even) .project-visual {
+    padding: 3rem 0 3rem 3rem; 
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Base styles for the image */
+.project-img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Remove the rounded corners on the side where the image touches the edge for a cleaner flush look */
+.project-row:nth-child(odd) .project-img {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.project-row:nth-child(even) .project-img {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.project-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.project-info {
+    flex: 1; 
+}
+
+.project-info h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.project-info p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.project-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.project-link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--text-color);
+    letter-spacing: 2px;
+}
+
+/* The hidden line */
+.project-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background-color: var(--accent1); 
+    
+    /* Animation start state */
+    transform: scaleX(0.3); 
+    transform-origin: left; 
+    transition: transform 0.3s ease; 
+}
+
+/* The hover trigger */
+.project-link:hover::after {
+    transform: scaleX(1); 
+}
+
+.contact-section {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 25rem; 
+    width: 100%;
+    margin: 0 auto; 
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px; 
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--main-color2);
+    border: none;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-color);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 2px solid var(--accent2);
+    outline-offset: -2px;
+}
+
+.submit-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.submit-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.email-link {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .project-row, 
+    .project-row:nth-child(even) {
+        flex-direction: column;
+        gap: 0rem;
+    }
+    
+    .project-visual {
+        padding: 1.5rem;
+        width: 100%;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .about-container {
+        flex-direction: column; 
+        flex-direction: column-reverse; 
+        gap: 3rem;
+    }
+    
+    .about-text {
+        text-align: center;
+    }
+}

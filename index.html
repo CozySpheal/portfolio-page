@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derrick Sinibalo | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section id="Home" class="hero">
+        <h1>Derrick Sinibalo, <span class="text-accent">Junior Software Developer</span></h1>
+        <p>I build things with code. Currently focused on algorithms, web development, and machine learning.</p>
+        <a href="#about" class="project-link">Learn More</a>
+    </section>
+    <header>
+        <div class="logo">Derrick <span class="text-accent">Sinibalo</span></div>
+        <nav>
+            <a href="#Home" class="btn">Home</a>
+            <a href="#about" class="btn">About</a>
+            <a href="#projects" class="btn">Projects</a>
+            <a href="#contact" class="btn">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <!-- About section -->
+        <section id="about">
+            <div class="section-header">
+                <h2 class="section-title">About</h2>
+            </div>
+            <div class="about-container">
+                <div class="about-half project-info">
+                    <p>With a constant sense of wonder about what is possible to do with programming, I am a computer science student with an interest in backend development. The curious puzzle of finding ways to solve problems or making things possible fuel my drive to learn all there is to know about software development. </p>
+                </div>
+
+
+                <div class="about-half about-visual">
+
+                    <img src="logos.png" class="about-img">
+                </div>
+            </div>
+        </section>
+        <!-- Projects  -->
+        <section id="projects" class="projects-section">
+            <div class="section-header">
+                <h2 class="section-title">Projects</h2>
+            </div>
+
+            <!-- Project 1: Opti-chain -->
+            <article class="project-row">
+                <div class="project-visual">
+                    <img src="optichain_screenshot.png" alt="Opti-chain screenshot" class="project-img">
+                </div>
+                
+                <div class="project-info">
+                    <h3>Opti-chain</h3>
+                    <p>A convenience store product demand forecasting dashboard made with Streamlit.</p>
+                    <div class="project-links">
+                        <a href="https://optichain-v1.streamlit.app/" target="_blank" class="project-link">Live App</a>
+                        <a href="https://github.com/cozyspheal/optichain_streamlit" target="_blank" class="project-link">View Code</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 2: Spheal Ball Run -->
+            <article class="project-row">
+                <div class="project-visual">
+                    <img src="sphealballrun_screenshot.png" alt="Spheal Ball Run screenshot" class="project-img">
+                </div>
+                
+                <div class="project-info">
+                    <h3>Spheal Ball Run</h3>
+                    <p>A dodge game made with Flutter.</p>
+                    <div class="project-links">
+                        <a href="https://sphealballrun.vercel.app/" target="_blank" class="project-link">Play Now</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 3: SpendWise-->
+            <article class="project-row">
+                <div class="project-visual">
+                    <img src="spendwise_screenshot.png" alt="SpendWise screenshot" class="project-img">
+                </div>
+                
+                <div class="project-info">
+                    <h3>SpendWise</h3>
+                    <p>A savings tracking app made with React.</p>
+                    <div class="project-links">
+                        <a href="https://spendwise-sinibalo.vercel.app/" target="_blank" class="project-link">Live App</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 4: Voyage -->
+            <article class="project-row">
+                <div class="project-visual">
+                    <img src="voyage_screenshot.png" alt="Voyage screenshot" class="project-img">
+                </div>
+                
+                <div class="project-info">
+                    <h3>Voyage</h3>
+                    <p>A travel blog made in HTML and CSS featuring destinations in France.</p>
+                    <div class="project-links">
+                        <a href="https://cozyspheal.github.io/voyage/index.html" target="_blank" class="project-link">Live Page</a>
+                        <a href="https://github.com/CozySpheal/voyage/tree/main" target="_blank" class="project-link">View Code</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <h2 class="section-title">Contact</h2>
+        </div>
+        <p class="project-info">Have a question? Leave a message down below or send me an email at <a href='ma&#105;&#108;t&#111;&#58;D&#46;S%&#54;9n&#105;&#98;&#37;6&#49;&#37;6Co%4&#48;G&#109;&#97;il%2Eco%6D' class="email-link">D&#46;&#83;&#105;niba&#108;o&#64;&#71;mail&#46;com</a></p>
+        <form class="contact-form" action="https://formspree.io/f/your_endpoint_here" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" rows="6" placeholder="Message" required></textarea>
+            
+            <div class="submit-container">
+                <button type="submit" class="project-link submit-btn">Submit</button>
+            </div>
+        </form>
+    </section>
+
+</body>
+</html>

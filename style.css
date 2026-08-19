@@ -206,7 +206,7 @@ section {
     align-items: center;
     box-shadow: 2.2px 4.5px 4.5px hsl(0deg 0% 0% / 0.43);
     transition: 0.2s ease;
-    position: relative;
+    position: relative;  
 }
 
 /* Odd rows have the image to the left. */

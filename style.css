@@ -37,13 +37,11 @@ html::-webkit-scrollbar {
     display: none;
 }
 
-/* Layout and Container Limits */
 header, main, footer {
-    margin: 0 auto; /* Centers the content on large screens */
+    margin: 0 auto;
     padding: 2rem;
 }
 
-/* 3. Header & Navigation (Flexbox) */
 header {
     display: flex;
     justify-content: space-between;
@@ -74,12 +72,14 @@ nav a:hover {
     color: var(--text-color);
 }
 
-/* 4. Sections */
 section {
     margin-bottom: 5rem;
 }
 
 .hero {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
     min-height: 100vh; 
     display: flex;
     flex-direction: column;
@@ -88,6 +88,11 @@ section {
     text-align: center;
     padding: 2rem; 
     margin-bottom: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
@@ -99,11 +104,18 @@ section {
     margin-bottom: 2rem;
 }
 
-/* 5. Project Grid (CSS Grid) */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: var(--main-color1);
+}
+
 .project-grid {
     display: grid;
-    /* This single line makes the grid responsive. 
-       Cards will be at least 300px wide, and will fill available space. */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
@@ -233,10 +245,12 @@ section {
     box-shadow: 4.8px 9.6px 9.6px hsl(0deg 0% 0% / 0.35);
 }
 
-/* Base styles for the image */
 .project-img {
-    max-width: 100%;
-    height: auto;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover; 
+    border-radius: 4px;
     box-shadow: 2.2px 4.5px 4.5px hsl(0deg 0% 0% / 0.43);
 }
 
@@ -253,12 +267,6 @@ section {
 .project-row:nth-child(even) .project-img {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-}
-
-.project-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
 }
 
 .expanding-link {
@@ -410,4 +418,68 @@ section {
     .about-text {
         text-align: center;
     }
+}
+
+/* Base styles for the animated WebP */
+.project-anim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none; /* Allows the link to remain clickable */
+}
+
+/* Trigger the fade-in on hover */
+.project-visual:hover .project-anim {
+    opacity: 1;
+}
+
+/* Match the flush corners from your existing design */
+.project-row:nth-child(odd) .project-anim {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.project-row:nth-child(even) .project-anim {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.image-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.bg-anim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* Hidden by default */
+    /* Run the 16-second cycle infinitely */
+    animation: cycleBg 20s infinite;
+}
+
+/* Stagger the start times by 4 seconds each */
+.bg-anim:nth-child(1) { animation-delay: 0s; }
+.bg-anim:nth-child(2) { animation-delay: 4s; }
+.bg-anim:nth-child(3) { animation-delay: 8s; }
+.bg-anim:nth-child(4) { animation-delay: 12s; }
+.bg-anim:nth-child(5) { animation-delay: 16s; }
+
+/* The fade animation logic */
+@keyframes cycleBg {
+    0% { opacity: 0; }
+    5% { opacity: 0.15; }  /* Fade in quickly to 15% opacity */
+    20% { opacity: 0.15; } /* Hold it */
+    25% { opacity: 0; }    /* Fade out as the next one comes in */
+    100% { opacity: 0; }   /* Stay hidden for the rest of the 16s cycle */
 }
